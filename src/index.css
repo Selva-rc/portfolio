@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%; /* approximated for #0a0a0a */
+    --foreground: 0 0% 100%;
+  }
+
+  body {
+    @apply bg-background text-white font-body overflow-x-hidden antialiased selection:bg-accent selection:text-white;
+  }
+}
+
+@layer utilities {
+  /* Subtle dot grid background */
+  .bg-grid-pattern {
+    background-size: 30px 30px;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px);
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-black/40 backdrop-blur-md border border-white/10;
+  }
+}
