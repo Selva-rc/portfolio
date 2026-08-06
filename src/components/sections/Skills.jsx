@@ -94,24 +94,36 @@ const Skills = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
               >
-                {category.skills.map((skill, index) => (
-                  <motion.div key={index} variants={itemVariants}>
-                    <Tilt options={{ max: 25, scale: 1.05, speed: 400 }} className="h-full">
-                      <div className={`h-full glass flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 block ${skill.color}`}>
-                        <div className="w-16 h-16 relative flex justify-center items-center mb-4 bg-white/5 rounded-xl p-3">
-                          <img 
-                            src={skill.customIcon || `https://cdn.simpleicons.org/${skill.icon}/white`} 
-                            alt={skill.name} 
-                            className={`w-full h-full object-contain filter drop-shadow-md ${skill.customIcon ? 'brightness-0 invert' : ''}`}
-                          />
+                {category.skills.map((skill, index) => {
+                  const handleSkillClick = () => {
+                    const event = new CustomEvent('skill-selected', { detail: { skill: skill.name } })
+                    window.dispatchEvent(event)
+                    
+                    const projectsSection = document.getElementById('projects')
+                    if (projectsSection) {
+                      projectsSection.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }
+
+                  return (
+                    <motion.div key={index} variants={itemVariants} onClick={handleSkillClick} className="cursor-pointer">
+                      <Tilt options={{ max: 25, scale: 1.05, speed: 400 }} className="h-full">
+                        <div className={`h-full glass flex flex-col items-center justify-center p-6 rounded-2xl border border-white/10 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 active:scale-95 block ${skill.color}`}>
+                          <div className="w-16 h-16 relative flex justify-center items-center mb-4 bg-white/5 rounded-xl p-3">
+                            <img 
+                              src={skill.customIcon || `https://cdn.simpleicons.org/${skill.icon}/white`} 
+                              alt={skill.name} 
+                              className={`w-full h-full object-contain filter drop-shadow-md ${skill.customIcon ? 'brightness-0 invert' : ''}`}
+                            />
+                          </div>
+                          <span className="text-sm md:text-base font-medium text-gray-300 font-mono text-center">
+                            {skill.name}
+                          </span>
                         </div>
-                        <span className="text-sm md:text-base font-medium text-gray-300 font-mono text-center">
-                          {skill.name}
-                        </span>
-                      </div>
-                    </Tilt>
-                  </motion.div>
-                ))}
+                      </Tilt>
+                    </motion.div>
+                  )
+                })}
               </motion.div>
             </div>
           ))}

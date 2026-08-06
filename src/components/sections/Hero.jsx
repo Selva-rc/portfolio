@@ -50,7 +50,7 @@ const Hero = () => {
               speed: 1,
               straight: false,
             },
-            number: { density: { enable: true, area: 800 }, value: 60 },
+            number: { density: { enable: true, area: 800 }, value: 40 },
             opacity: { value: 0.5 },
             shape: { type: 'circle' },
             size: { value: { min: 1, max: 3 } },

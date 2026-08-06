@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Code2, Server, Database, Coffee } from 'lucide-react'
-import WakaTimeStats from '../ui/WakaTimeStats'
+import Terminal from '../ui/Terminal'
 
 const AnimatedCounter = ({ end, suffix = '' }) => {
   const [count, setCount] = useState(0)
@@ -86,19 +86,9 @@ const About = () => {
             </h3>
             <div className="text-gray-400 space-y-4 text-base md:text-lg leading-relaxed font-body">
               <p>
-                Hello! I'm Selvarasan, a software developer with a deep passion for building 
-                robust applications from the ground up. Over the past 2 years, I've immersed myself in 
-                the world of coding, constantly learning and applying new technologies to solve complex problems.
-              </p>
-              <p>
-                I am currently pursuing my B.Tech in IT at <span className="text-white font-medium">Sathyabama Institute of Science and Technology</span>, 
-                expected to graduate in <span className="text-accent font-medium relative inline-block">2027
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent/50 -rotate-2"></span>
-                </span>. 
-              </p>
-              <p>
-                My expertise spans across modern frontend experiences with React and powerful backend ecosystems using Java & Spring Boot. 
-                I believe in writing clean, scalable code and delivering exceptional user experiences through highly responsive architecture.
+                I'm Selvarasan S, a 4th-year B.Tech IT student at Sathyabama University. I have experience in Java and SQL.
+                I have built projects such as a university management and a smart hostel management. I'm passionate about
+                software development and continuously improving my technical and problem-solving skills.
               </p>
             </div>
           </motion.div>
@@ -127,7 +117,26 @@ const About = () => {
           ))}
         </div>
 
-        <WakaTimeStats />
+        {/* Interactive Terminal Shell */}
+        <div className="mt-20 w-full flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center mb-8 text-center"
+          >
+            <h4 className="text-xl md:text-2xl font-heading font-bold text-white mb-2 flex items-center gap-2">
+              Interactive <span className="text-accent">Developer Shell</span>
+            </h4>
+            <p className="text-gray-400 text-sm md:text-base font-body max-w-lg">
+              Query my details in real time. Click inside the terminal and type <code className="bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-accent font-semibold font-mono">help</code>.
+            </p>
+          </motion.div>
+          <div className="w-full max-w-4xl relative z-10">
+            <Terminal />
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -1,44 +1,74 @@
 import { motion } from 'framer-motion'
-import { Tilt } from 'react-tilt'
-import { Award, ExternalLink, Calendar } from 'lucide-react'
 
 const certificatesData = [
   {
     id: 1,
-    title: 'AWS Certified Solutions Architect',
-    issuer: 'Amazon Web Services',
-    date: 'Dec 2024',
-    description: 'Earned the AWS Certified Solutions Architect – Associate certification, demonstrating expertise in designing distributed systems.',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800',
-    tags: ['AWS', 'Cloud', 'Architecture'],
-    link: '#'
+    title: 'Programming in Java (Silver Elite)',
+    issuer: 'NPTEL / IIT Kharagpur',
+    date: 'Jan-Apr 2026',
+    link: '/nptel-java-cert.png'
   },
   {
     id: 2,
-    title: 'Meta Front-End Developer Professional Certificate',
-    issuer: 'Coursera / Meta',
-    date: 'Oct 2024',
-    description: 'Completed a 9-course program on modern front-end development, covering React, UI/UX, and performance optimization.',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'JavaScript', 'UI/UX'],
-    link: '#'
-  },
-  {
-    id: 3,
-    title: 'Google Data Analytics Professional Certificate',
-    issuer: 'Coursera / Google',
-    date: 'Aug 2024',
-    description: 'Foundational certification in data analysis, covering tools like SQL, R, and Tableau for real-world problem solving.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-    tags: ['Data Analysis', 'SQL', 'Tableau'],
-    link: '#'
+    title: 'Software Engineer Certificate',
+    issuer: 'HackerRank',
+    date: 'Apr 2026',
+    link: 'https://www.hackerrank.com/certificates/fbcff6a74534'
   }
 ]
 
+const getLogo = (issuer) => {
+  switch (issuer) {
+    case 'Scaler':
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#0056cc]" fill="currentColor">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v2h4v2H7V7h10v2h-6v2h6v2z" />
+        </svg>
+      )
+    case 'Smart India Hackathon':
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5 0-3.3-2.7-6-6-6S6 4.7 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5" />
+          <path d="M9 18h6" />
+          <path d="M10 22h4" />
+        </svg>
+      )
+    case 'TCS iON':
+      return (
+        <svg viewBox="0 0 32 16" className="w-8 h-4">
+          <text x="0" y="13" className="font-sans font-black text-xs lowercase" fill="url(#tcs-grad)" letterSpacing="-0.5px">tcs</text>
+          <defs>
+            <linearGradient id="tcs-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ff4560" />
+              <stop offset="50%" stopColor="#775dd0" />
+              <stop offset="100%" stopColor="#008ffb" />
+            </linearGradient>
+          </defs>
+        </svg>
+      )
+    case 'NPTEL / IIT Kharagpur':
+      return (
+        <img src="/nptel-logo.jpg" alt="NPTEL Logo" className="w-full h-full object-contain rounded-md" />
+      )
+    case 'HackerRank':
+      return (
+        <img src="/hackerrank-logo.png" alt="HackerRank Logo" className="w-full h-full object-contain rounded-md" />
+      )
+    default:
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 text-neutral-400" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      )
+  }
+}
+
 const Certificates = () => {
+  if (certificatesData.length === 0) return null
+
   return (
     <section id="certificates" className="py-24 relative overflow-hidden bg-black/40 border-y border-white/5">
-      <div className="container mx-auto px-6 md:px-12 relative z-10 w-full max-w-7xl">
+      <div className="container mx-auto px-6 md:px-12 relative z-10 w-full max-w-4xl">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,76 +78,38 @@ const Certificates = () => {
           className="flex flex-col items-center mb-16 text-center"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
-            Licenses & <span className="text-accent">Certifications</span>
+            Certifications <span className="text-gray-500 text-2xl font-normal ml-2">({certificatesData.length})</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl text-lg font-body">
-            Professional credentials validating my skills and continuous learning journey.
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-secondary rounded-full mt-6" />
+          <div className="w-24 h-1 bg-gradient-to-r from-accent to-secondary rounded-full mt-4" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificatesData.map((cert, index) => (
-            <motion.div
+        <div className="flex flex-col border border-white/10 rounded-2xl divide-y divide-white/10 bg-black/20 overflow-hidden">
+          {certificatesData.map((cert) => (
+            <a
               key={cert.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between p-5 md:p-6 hover:bg-white/5 transition-all duration-300 group"
             >
-              <Tilt 
-                options={{ max: 15, scale: 1.02, speed: 400, glare: true, 'max-glare': 0.1 }} 
-                className="h-full"
-              >
-                <div className="h-full glass rounded-2xl overflow-hidden border border-white/10 group flex flex-col hover:border-accent/50 transition-colors duration-300">
-                  <div className="relative w-full h-48 overflow-hidden bg-black/50">
-                    <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center backdrop-blur-sm">
-                      <a href={cert.link} target="_blank" rel="noreferrer" className="p-3 bg-black/60 rounded-full text-white hover:bg-accent hover:scale-110 transition-all">
-                        <ExternalLink size={24} />
-                      </a>
-                    </div>
-                    {/* Optional Image fallback or stylized background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-background/80 to-background/20 z-[1]" />
-                    <img 
-                      src={cert.image} 
-                      alt={cert.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 right-4 z-10 text-white bg-black/40 backdrop-blur-md p-2 rounded-lg border border-white/10">
-                      <Award size={20} className="text-accent" />
-                    </div>
-                  </div>
-
-                  <div className="p-6 md:p-8 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 text-gray-400 mb-3 text-sm font-medium">
-                      <Calendar size={16} className="text-secondary" />
-                      <span>{cert.date}</span>
-                      <span className="mx-2 text-white/20">•</span>
-                      <span className="text-accent/80 font-semibold">{cert.issuer}</span>
-                    </div>
-
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4 font-heading group-hover:text-accent transition-colors line-clamp-2">
-                      {cert.title}
-                    </h3>
-                    
-                    <p className="text-gray-400 mb-6 flex-1 text-sm md:text-base leading-relaxed">
-                      {cert.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {cert.tags.map((tag, idx) => (
-                         <span 
-                          key={idx} 
-                          className="px-3 py-1 text-xs font-mono font-medium rounded-md bg-white/5 text-gray-300 border border-white/10"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+              <div className="flex items-center gap-4 md:gap-6">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
+                  {getLogo(cert.issuer)}
                 </div>
-              </Tilt>
-            </motion.div>
+                <div className="text-left">
+                  <h3 className="text-white font-bold text-base md:text-lg group-hover:text-accent transition-colors">
+                    {cert.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1">
+                    {cert.issuer} &bull; {cert.date}
+                  </p>
+                </div>
+              </div>
+              <svg viewBox="0 0 24 24" className="w-5 h-5 text-gray-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
           ))}
         </div>
 

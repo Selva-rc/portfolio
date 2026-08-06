@@ -1,33 +1,40 @@
-import { User } from 'lucide-react'
-
 const Footer = () => {
   return (
-    <footer className="w-full py-8 border-t border-white/10 bg-background/80 backdrop-blur-sm z-40 relative">
-      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex flex-col items-center md:items-start">
-          <span className="text-2xl font-heading font-bold tracking-tighter text-white">
-            S<span className="text-accent">.</span>S
-          </span>
-          <p className="text-sm text-gray-400 mt-2 font-medium">
-            Designed & Built by Selvarasan S
-          </p>
-        </div>
+    <footer className="w-full py-12 border-t border-white/10 bg-background/80 backdrop-blur-sm z-40 relative">
+      <div className="container mx-auto px-6 md:px-12 flex flex-col gap-8 w-full max-w-6xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-lg font-medium text-white flex items-center gap-1.5">
+            Designed and Made with <span className="inline-block animate-pulse text-blue-500">💙</span>
+          </div>
 
-        <div className="flex items-center gap-6">
-          <a href="https://github.com/Selva-rc" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-accent transition-all hover:scale-110 flex items-center justify-center">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD0UlEQVR4nO2aSWsVQRCAv4iiAcUVFMxBhRgVjfuuBwVxQT158KjiLijqQU+ieBC3aHD3JP4JDZoIblEEF7y6m4P7gnE3iRT0g8djxnT1TPc8YT4oCC8ztfTMdFdXNeTk5OTk5PhmBLAeOAU0Ao+BD8AvI/L3I/O/k8A6oIb/nHFAHdACdDjKS+AwMJb/hApgCdCcIOg4uQksNjbKkinAHQ+Bl8ptYBJlRCVwDGgLEHxBxFY90CPr4GuABwEDL5V7QHVWwU8F3mUYfEFkBZkVOviFwLcyCL4gX4EFoYKfBrSWQdCl8i3Em1ADfCyDYOPkvc85odJiwmsC9gANwI8UA/sOXDS6L3Vy7V1fq8NxC0dXFl0/ENgFvE4Q+CtgK9C7SO8yi/uO+khy2iwMD4+4ty9w3iH4c0CfCH3VFvf+ASakFXyFIsMrflKlbAZOAyuA8cBg81mJVJnfVphr5No4+lr60pxW2rxE8dS64p+uCn9kuU5Ms8JgP/zTW+HPjTS2tB0KkX2/b4YofapNYqxOaWw5/pmr9OlgEmMtCkPtaX1znTDH2LL163mSrK9DIfsJx2Glb07Z4XrlKHcnHJLpvVD4t9bFyCmFgTWER/OATrgYaLJULjl/L8LTU7HfkP2DmqeWyi+QHQ2WPkoZXs17S+UHyI5Dlj6+dVH+01K57NayYrviM1Xzy1L5Nsp/AORhqvlUhuu/6ycghVNvk2Aj2XHF5yTYZKn8N9Cf8Awwtm18vOxi4KylcpF9hOeAwj9J6tSsURYtRxOOWmXRdZWLkdEKA4X9gJS5fFNl2uYa30a6GnuiNNRiGie+mAg8U/okk7kz9UpjhTW3LuXymOg6oshNikXuc2a8g8GCfDYVXnkjujjYlnumA2eMLlc/EpXEhFsRSj+a0rU0S75YOCH7itXYs1axF/mXXCcFlkYobjdLXxfTDHlpcapDUzCpjBl4rSxKYwAqTABRBnYXfSpxm6d2U13WMs50eFyDl3J+akyOaY1J0IPMNRtjHJF01fd+v1T+mBUjVepjjO0oumZvRMV2ZwKbmxwHQFYhL4XI+xHGHpb04CabNFWc2JBwnzDf8dyQtwJtdcy5IM0Mr2GSMvi3IQ5NzTK5f+mymHi9jWCi8ojMDAIxzxxMKnZAkpUtJS3ybglfR9sBaDUts6DMNq9c1Mrw1DQufiacjW0G4A0wk4wYZnFuyOcAyIQ3lIzpYXp1bQEHoM10fUO24zpFzuRcCzAAtz1vuRNRYfLv6x4G4Gqg9ntqjDGfxqgEOkaZ0nfIcpsXXOsBOTk5OTk5+OMvJumzTKKLQPIAAAAASUVORK5CYII=" alt="github" className="w-5 h-5 invert opacity-70 group-hover:opacity-100 transition-opacity" />
-          </a>
-          <a href="https://linkedin.com/in/selvarasans" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-accent transition-all hover:scale-110">
-            <User size={20} />
-          </a>
-          <a href="mailto:selva200513@gmail.com" className="text-gray-400 hover:text-accent transition-all hover:scale-110 flex items-center justify-center">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACu0lEQVR4nO2UT2jTYByG48F5c4ieFcdogqaVNkmXuJ7KDkILrcPN4y4y2KFnPYjebMCbc4JXT85Bq0IPWm1zsLVoFZFdNjfULV93kVHBuZJoP/lmo1lNmj/9K3wvvLfw6/skDyUIHBwcHBwcXcoez7ECRd0pkmSlQJI7BZIsFT2eaaLH+SHR06pEl5Q8vaPkvRU1T9+GWeqo9XiSXC1SFDToUnlkZLjbw2GWGVYkekmVvPCf5umVlhB7b954vNa1EkUx3Rqv5LyMKnnXDMf/7bw5AEluWQCg1gDPJTo9HvBcQpG8NYvxUMnTwByAouo2ACAQOCjz3MPPodCRdod/CQYPA4G7j25ajf8N4K2bHrMzXgNoQHzaHA/ybscDngkAgfug3bMDgNoxgEYVIHCXIUEccDK+IrCzgOdq+lv9AnCklF4Z0NS2AeYnZt65BbCjVLMywAXAq+zYa1OA4yKAk3OLap4+U3MD0EopI2WAA4DvOd/uzUy4Gk3HYUsA1MDVt/BeKP7TJcA+pVopA2wCrD8L1C49ikA03hYA6skbG/DKhWt1o79WO2MaEOuodp9XDcZnnozD8+nYn/G2AbROzi3WpdO+XTcATqvqhn/L+RQxM7FvuCsATak0G97qFcDmc/+2Xpm2ATSlkpHEClKqmwAvnvIfm5XpCIDW2ZmF90Dgql0AqC48Di+3Gt4RANSK4D8BePZlp8bLAvdmg/eP2hnfEQD0bJlhDso8K8oC15ZSMs/dXT03egjd7CmAFnCWiQGe3Xb+1tmv8hh7UX+rLwAoTpXSlCGa0jcAJ0rplRkoACuljJQZSAAjpcyUGVgAFKSJLLC3UM2UGWgAN4liABEDtJUoBkgCMPAAqbhsDiDK4qADRNKxpOmBU9eXh/YgLL5EPwAiqTiIpuLi1IOpoW79Pg4ODg4O8d/lF8QKnDLBCDeUAAAAAElFTkSuQmCC" alt="gmail-new" className="w-5 h-5 invert opacity-70 group-hover:opacity-100 transition-opacity" />
-          </a>
+          <div className="flex items-center gap-6">
+            <a href="https://github.com/Selva-rc" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-accent transition-all hover:-translate-y-0.5">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/selvarasans" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-accent transition-all hover:-translate-y-0.5">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/selva_rc_/?__pwa=1" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-accent transition-all hover:-translate-y-0.5">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
         </div>
         
-        <p className="text-xs text-gray-500 font-mono">
-          &copy; {new Date().getFullYear()} Selvarasan S. All rights reserved.
-        </p>
+        <div className="border-t border-white/5 pt-6 text-center">
+          <p className="text-xs text-gray-500 font-mono">
+            &copy; {new Date().getFullYear()}. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   )
